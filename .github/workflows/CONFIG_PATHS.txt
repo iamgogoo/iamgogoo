@@ -1,0 +1,7 @@
+FILES YOU CAN CHANGE (مسارات قابلة للتغيير):
+- public/assets/background.jpg  ← خلفية الصفحة الرئيسية.
+- public/style.css              ← الألوان والخطوط والمظهر.
+- public/client.js              ← منطق المسرح والرسومات (العيون، توزيع الشخصيات).
+- views/*.ejs                   ← الواجهات (الصفحات).
+- data/allowlist.json           ← قائمة المعتمدين (لا تعدّلها يدويًا أثناء التشغيل).
+- .env                          ← الإعدادات السرية (Steam API / Base URL / Admins).

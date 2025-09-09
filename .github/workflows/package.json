@@ -1,0 +1,32 @@
+{
+  "name": "4d-justice-game",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Multiplayer voice debate game with judge/lawyer/prosecutor roles, Steam login, admin approval, and customizable assets.",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.3",
+    "connect-flash": "^0.1.1",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.19.2",
+    "express-session": "^1.18.0",
+    "fs-extra": "^11.2.0",
+    "helmet": "^7.1.0",
+    "http": "^0.0.1-security",
+    "morgan": "^1.10.0",
+    "passport": "^0.7.0",
+    "passport-steam": "^1.0.18",
+    "socket.io": "^4.7.5",
+    "uuid": "^9.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
