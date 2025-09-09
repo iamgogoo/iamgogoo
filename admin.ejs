@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة الأدمن</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body class="center">
+  <div class="card">
+    <h2>الموافقات</h2>
+    <h3>في انتظار الموافقة</h3>
+    <ul>
+      <% pending.forEach(p => { %>
+        <li>
+          <strong><%= p.name %></strong> — <code><%= p.id %></code>
+          <form action="/admin/approve" method="post" style="display:inline">
+            <input type="hidden" name="id" value="<%= p.id %>">
+            <button class="btn">موافقة</button>
+          </form>
+          <form action="/admin/reject" method="post" style="display:inline">
+            <input type="hidden" name="id" value="<%= p.id %>">
+            <button class="btn light">رفض</button>
+          </form>
+        </li>
+      <% }) %>
+    </ul>
+    <h3>القائمة المسموح بها</h3>
+    <ul>
+      <% allow.forEach(id => { %>
+        <li><code><%= id %></code></li>
+      <% }) %>
+    </ul>
+    <a class="btn light" href="/">رجوع</a>
+  </div>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>اللعبة 4D - الصفحة الرئيسية</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body class="home" style="--bg-image: url('/assets/background.jpg');">
+  <div class="overlay">
+    <header>
+      <h1>اللعبة 4D - ساحة العدالة</h1>
+      <nav>
+        <% if (user) { %>
+          <span>مرحبا، <%= user.displayName %></span>
+          <a class="btn" href="/lobby">دخول اللوبي</a>
+          <a class="btn" href="/logout">خروج</a>
+        <% } else { %>
+          <a class="btn" href="/login">تسجيل الدخول عبر Steam</a>
+        <% } %>
+      </nav>
+    </header>
+  </div>
+</body>
+</html>

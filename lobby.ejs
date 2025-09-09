@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>اللوبي</title>
+  <link rel="stylesheet" href="/style.css">
+  <script src="/socket.io/socket.io.js"></script>
+</head>
+<body class="center">
+  <div class="card">
+    <h2>اللوبي</h2>
+    <div class="row">
+      <button class="btn" id="create">إنشاء غرفة + دعوة الأصدقاء</button>
+    </div>
+    <div class="row">
+      <input id="roomId" placeholder="أدخل كود الغرفة للانضمام">
+      <button class="btn" id="join">طلب الانضمام</button>
+    </div>
+    <div class="row">
+      <a class="btn light" href="/">رجوع</a>
+    </div>
+  </div>
+
+  <script>
+    const socket = io();
+    const user = <%- JSON.stringify({ id: user.id, displayName: user.displayName }) %>;
+    socket.emit('joinLobby', user);
+
+    document.getElementById('create').onclick = () => {
+      socket.emit('createRoom');
+    };
+    socket.on('roomCreated', (roomId) => {
+      alert('تم إنشاء الغرفة. كود الدعوة: ' + roomId);
+      location.href = '/room/' + roomId;
+    });
+
+    document.getElementById('join').onclick = () => {
+      const roomId = document.getElementById('roomId').value.trim();
+      if (!roomId) return alert('أدخل كود صحيح');
+      location.href = '/room/' + roomId;
+    };
+  </script>
+</body>
+</html>
